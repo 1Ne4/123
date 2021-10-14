@@ -43,23 +43,43 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
             OnGround = false;
     }
+    
+    private IEnumerable<Vector3> GetSmooth(int koef)
+    {
+        for (var i = 0.5f; i <= 1; i += 0.1f)
+            yield return new Vector3(1, i, 1);
+    }
+
+    private void GetSpeed()
+    {
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            currentSpeed = 2;
+            GetComponent<BoxCollider>().transform.localScale = new Vector3(1, Mathf.Lerp(1, 0.05f, 10 * Time.deltaTime), 1);
+        }
+        else
+        {
+            GetComponent<BoxCollider>().transform.localScale = new Vector3(1, Mathf.Lerp(GetComponent<BoxCollider>().transform.localScale.y, 1, 10 * Time.deltaTime), 1);
+            if (Stamina < 5)
+                currentSpeed = 2;
+            if (Stamina > 2)
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    if (Stamina < 5)
+                        currentSpeed = 2;
+                    else
+                        currentSpeed = FastedSpeed;
+                    if (Stamina > 5)
+                        Stamina -= 0.07f;
+                }
+                else
+                    currentSpeed = NormalSpeed;
+        }
+    }
 
     private void MoveCharacter()
     {
-        if (Stamina < 5)
-            currentSpeed = 2;
-        if (Stamina > 2)
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                if (Stamina < 5)
-                    currentSpeed = 2;
-                else
-                    currentSpeed = FastedSpeed;
-                if (Stamina > 5)
-                    Stamina -= 0.07f;
-            }
-            else
-                currentSpeed = NormalSpeed;
+        GetSpeed();
 
         if (OnGround)
         {
