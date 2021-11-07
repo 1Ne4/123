@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyScript : MonoBehaviour
@@ -11,9 +12,10 @@ public class EnemyScript : MonoBehaviour
     public double hearDistance = 3d;
     public Transform enemyEye;
     public Transform target;
+    public Slider stelthBar;
 
     private NavMeshAgent agent;
-    private double rotationSpeed=10d;
+    private double rotationSpeed = 10d;
     private Transform agentTransform;
 
     // Start is called before the first frame update
@@ -31,10 +33,22 @@ public class EnemyScript : MonoBehaviour
         double distanceToPlayer = Vector3.Distance(target.transform.position, agent.transform.position);
         if (distanceToPlayer <= hearDistance || IsInView())
         {
-            MoveToTarget();
+            if (PlayerController.timeOfContact > 400)
+                MoveToTarget();
+            
+            else
+            {
+                PlayerController.timeOfContact += 1;
+            }
         }
+        else
+        {
+            if (PlayerController.timeOfContact >= 0&&Time.timeScale.Equals(1f))
+                PlayerController.timeOfContact -= 1;
+        }
+        stelthBar.value = PlayerController.timeOfContact;
     }
-
+    
     private bool IsInView()
     {
         double realAngle = Vector3.Angle(enemyEye.forward, target.position - enemyEye.position);
@@ -54,9 +68,8 @@ public class EnemyScript : MonoBehaviour
 
     private void MoveToTarget()
     {
-        agentTransform.LookAt(target);
-        agent.SetDestination(target.position);
+        agentTransform.LookAt(target.position);
+        agentTransform.LookAt(new Vector3(target.position.x,1,target.position.z));
+        agent.SetDestination(new Vector3(target.position.x,1,target.position.z));
     }
-    
-    
 }

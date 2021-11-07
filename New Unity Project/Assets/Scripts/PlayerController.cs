@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     private float RotationVertical, RotationHorizontal;
     private bool OnGround = false;
     public float Stamina = 100;
+    public static bool isPlayerCrouch ;
+    public static int timeOfContact = 0;
 
     private float NormalSpeed = 3, FastedSpeed = 5, currentSpeed = 3;
     private float jumpSpeed = 150;
@@ -28,9 +30,9 @@ public class PlayerController : MonoBehaviour
         MoveCharacter();
         MoveCamera();
         if (Stamina < 100 && Stamina > 10)
-            Stamina += 0.05f;
+            Stamina += 0.5f;
         else if (Stamina < 10)
-            Stamina += 0.025f;
+            Stamina += 0.25f;
     }
 
     private void OnCollisionStay(Collision collision)
@@ -70,7 +72,7 @@ public class PlayerController : MonoBehaviour
                     else
                         currentSpeed = FastedSpeed;
                     if (Stamina > 5)
-                        Stamina -= 0.07f;
+                        Stamina -= 0.7f;
                 }
                 else
                     currentSpeed = NormalSpeed;
