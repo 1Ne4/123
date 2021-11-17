@@ -46,7 +46,7 @@ MonoBehaviour:
     y: 0
     width: 2560
     height: 1357
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
   m_TopViewHeight: 30
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_MinSize: {x: 881, y: 492}
   m_MaxSize: {x: 16006, y: 14042}
   vertical: 0
-  controlID: 228
+  controlID: 60
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_MinSize: {x: 605, y: 492}
   m_MaxSize: {x: 12005, y: 14042}
   vertical: 1
-  controlID: 145
+  controlID: 61
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_MinSize: {x: 605, y: 221}
   m_MaxSize: {x: 12005, y: 4021}
   vertical: 0
-  controlID: 146
+  controlID: 62
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -193,8 +193,8 @@ MonoBehaviour:
     y: 0
     width: 203
     height: 1036
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -219,8 +219,8 @@ MonoBehaviour:
     y: 0
     width: 641
     height: 1036
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -246,8 +246,8 @@ MonoBehaviour:
     y: 0
     width: 1353
     height: 1036
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -299,8 +299,8 @@ MonoBehaviour:
     y: 0
     width: 363
     height: 1307
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -319,7 +319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c262c1329a02fa49b5cb4c297106f3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MinSize: {x: 133, y: 30}
+  m_MinSize: {x: 129, y: 28}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: ProBuilder
@@ -451,7 +451,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: e8f3ffff5afaffff4cfbffff16440000
+      m_ExpandedIDs: 4cfbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -511,9 +511,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -13.572653, y: -5.107822, z: -48.514}
+    m_Target: {x: -4.2292137, y: -13.374077, z: -50.67692}
     speed: 2
-    m_Value: {x: -13.572653, y: -5.107822, z: -48.514}
+    m_Value: {x: -4.2292137, y: -13.374077, z: -50.67692}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -560,9 +560,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.015319998, y: 0.96880037, z: -0.06199115, w: -0.23953594}
+    m_Target: {x: -0.021558464, y: 0.97815806, z: -0.13375656, w: -0.15774432}
     speed: 2
-    m_Value: {x: -0.015412741, y: 0.9684258, z: -0.061967194, w: -0.24098535}
+    m_Value: {x: -0.021357464, y: 0.97837794, z: -0.13378662, w: -0.15627441}
   m_Size:
     m_Target: 29.309198
     speed: 2
@@ -654,22 +654,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\project\New Unity Project
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: ca420000
-    m_LastClickedID: 17098
-    m_ExpandedIDs: 00000000ca42000000ca9a3b
+    m_SelectedIDs: ca430000
+    m_LastClickedID: 17354
+    m_ExpandedIDs: 000000006a43000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -697,7 +697,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ca420000
+    m_ExpandedIDs: 000000006a430000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
