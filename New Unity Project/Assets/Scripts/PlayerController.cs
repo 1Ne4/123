@@ -19,14 +19,23 @@ public class PlayerController : MonoBehaviour
     public GameObject Camera;
     public float sensivity = 1;
 
+
+
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         startingRotation = transform.rotation;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
         MoveCharacter();
         MoveCamera();
         if (Stamina < 100 && Stamina > 10)
@@ -111,6 +120,4 @@ public class PlayerController : MonoBehaviour
         var rotationX = Quaternion.AngleAxis(-RotationVertical, Vector3.right);
         return new Tuple<Quaternion, Quaternion>(rotationX, rotationY);
     }
-
-
 }
