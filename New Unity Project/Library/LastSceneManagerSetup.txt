@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/ProGridScene.unity
+- path: Assets/Scenes/Danil.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
