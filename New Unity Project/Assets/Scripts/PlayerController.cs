@@ -38,12 +38,12 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.tag == "Ground")
-            OnGround = true;
+            OnGround = false;
     }
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.tag == "Ground")
-            OnGround = false;
+            OnGround = true;
     }
     
     private IEnumerable<Vector3> GetSmooth(int koef)
@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
     {
         GetSpeed();
 
-        if (OnGround)
+        if (!OnGround)
         {
             Vertical = Input.GetAxis("Vertical") * Time.deltaTime * currentSpeed;
             Horizontal = Input.GetAxis("Horizontal") * Time.deltaTime * currentSpeed;
