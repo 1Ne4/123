@@ -47,12 +47,12 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.tag == "Ground")
-            OnGround = true;
+            OnGround = false;
     }
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.tag == "Ground")
-            OnGround = false;
+            OnGround = true;
     }
     
     private IEnumerable<Vector3> GetSmooth(int koef)
@@ -66,11 +66,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftControl))
         {
             currentSpeed = 2;
-            GetComponent<BoxCollider>().transform.localScale = new Vector3(1, Mathf.Lerp(1, 0.05f, 10 * Time.deltaTime), 1);
+            GetComponent<CapsuleCollider>().transform.localScale = new Vector3(0.5f, Mathf.Lerp(0.5f, 0.05f, 10 * Time.deltaTime), 0.5f);
         }
         else
         {
-            GetComponent<BoxCollider>().transform.localScale = new Vector3(1, Mathf.Lerp(GetComponent<BoxCollider>().transform.localScale.y, 1, 10 * Time.deltaTime), 1);
+            GetComponent<CapsuleCollider>().transform.localScale = new Vector3(0.5f, Mathf.Lerp(GetComponent<CapsuleCollider>().transform.localScale.y, 0.5f, 10 * Time.deltaTime), 0.5f);
             if (Stamina < 5)
                 currentSpeed = 2;
             if (Stamina > 2)
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
     {
         GetSpeed();
 
-        if (OnGround)
+        if (!OnGround)
         {
             Vertical = Input.GetAxis("Vertical") * Time.deltaTime * currentSpeed;
             Horizontal = Input.GetAxis("Horizontal") * Time.deltaTime * currentSpeed;
