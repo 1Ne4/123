@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CharacterController
   - Ground
+  - Door
   layers:
   - Default
   - TransparentFX

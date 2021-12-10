@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,14 +29,14 @@ public class EnemyScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
         double distanceToPlayer = Vector3.Distance(target.transform.position, agent.transform.position);
         if (distanceToPlayer <= hearDistance || IsInView())
         {
-            if (PlayerController.timeOfContact > 400)
+            if (PlayerController.timeOfContact > 100)
                 MoveToTarget();
-            
+
             else
             {
                 PlayerController.timeOfContact += 1;
@@ -43,12 +44,13 @@ public class EnemyScript : MonoBehaviour
         }
         else
         {
-            if (PlayerController.timeOfContact >= 0&&Time.timeScale.Equals(1f))
+            if (PlayerController.timeOfContact >= 0 && Time.timeScale.Equals(1f))
                 PlayerController.timeOfContact -= 1;
         }
+
         stelthBar.value = PlayerController.timeOfContact;
     }
-    
+
     private bool IsInView()
     {
         double realAngle = Vector3.Angle(enemyEye.forward, target.position - enemyEye.position);
@@ -68,8 +70,17 @@ public class EnemyScript : MonoBehaviour
 
     private void MoveToTarget()
     {
-        agentTransform.LookAt(target.position);
-        agentTransform.LookAt(new Vector3(target.position.x,1,target.position.z));
-        agent.SetDestination(new Vector3(target.position.x,1,target.position.z));
+        agentTransform.LookAt(new Vector3(target.position.x, 1, target.position.z));
+        agent.SetDestination(new Vector3(target.position.x, 1, target.position.z));
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Door")
+        {
+            agent.isStopped = true;
+            other.GetComponent<Door>().Open();
+            agent.isStopped = false;
+        }
     }
 }
