@@ -48,6 +48,10 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\EnemyScript.cs" />
+     <Compile Include="Assets\Scripts\stelthBar.cs" />
+     <Compile Include="Assets\Scripts\PauseMenuScript.cs" />
+     <Compile Include="Assets\Scripts\GameHandler.cs" />
+     <Compile Include="Assets\Scripts\PlayerController.cs" />
  <Reference Include="UnityEngine">
  <HintPath>D:/unity/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
@@ -618,11 +622,17 @@
  <Reference Include="Unity.VSCode.Editor">
  <HintPath>D:/проект/New Unity Project/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+ <HintPath>D:/проект/New Unity Project/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>D:/проект/New Unity Project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VisualStudio.Editor">
  <HintPath>D:/проект/New Unity Project/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.ProBuilder.AddOns.Editor">
+ <HintPath>D:/проект/New Unity Project/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/проект/New Unity Project/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
@@ -633,6 +643,12 @@
  <Reference Include="Unity.TextMeshPro">
  <HintPath>D:/проект/New Unity Project/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.ProBuilder">
+ <HintPath>D:/проект/New Unity Project/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.ProBuilder.Editor">
+ <HintPath>D:/проект/New Unity Project/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>D:/проект/New Unity Project/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
@@ -642,8 +658,14 @@
  <Reference Include="Unity.Rider.Editor">
  <HintPath>D:/проект/New Unity Project/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.ProGrids.Editor">
+ <HintPath>D:/проект/New Unity Project/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/проект/New Unity Project/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.ProGrids">
+ <HintPath>D:/проект/New Unity Project/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
