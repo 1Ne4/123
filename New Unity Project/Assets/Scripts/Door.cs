@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    private bool _isOpened;
+    public bool canOpened = false;
+    //private bool _isOpened;
+    private int setopen = -1;
+    [SerializeField] AudioSource _audio;
     [SerializeField] Animator _animator;
+    [SerializeField] GlobalsoundScream audioGlobal;
 
     // Update is called once per frame
     public void Open()
     {
-        _animator.SetBool("isOpened", _isOpened);
-        _isOpened = !_isOpened;
+        if (canOpened && setopen == -1)
+        {
+            _audio.Play();
+            setopen *= -1;
+            _animator.Play("OpenbackDoor");
+            audioGlobal.ScreamAudio();
+            //_animator.SetFloat("New Float", setopen);
+        }
     }
 }

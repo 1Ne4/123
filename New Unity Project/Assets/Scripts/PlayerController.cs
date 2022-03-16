@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     private Quaternion startingRotation;
     private float Vertical, Horizontal;
     private float RotationVertical, RotationHorizontal;
-    private bool OnGround = false;
+    private bool OnGround = true;
     public float Stamina = 100;
     public static bool isPlayerCrouch ;
     public static int timeOfContact = 0;
@@ -18,8 +18,6 @@ public class PlayerController : MonoBehaviour
     private float jumpSpeed = 150;
     public GameObject Camera;
     public float sensivity = 1;
-
-
 
     void Start()
     {
@@ -47,12 +45,19 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.tag == "Ground")
-            OnGround = false;
+        {
+            OnGround = true;
+            Debug.Log($"Я на земле {OnGround}");
+        }
     }
+
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.tag == "Ground")
-            OnGround = true;
+        {
+            OnGround = false;
+            Debug.Log($"Я не на земле {OnGround}");
+        }
     }
     
     private IEnumerable<Vector3> GetSmooth(int koef)
@@ -91,11 +96,10 @@ public class PlayerController : MonoBehaviour
     private void MoveCharacter()
     {
         GetSpeed();
-
-        if (!OnGround)
+        Vertical = Input.GetAxis("Vertical") * Time.deltaTime * currentSpeed;
+        Horizontal = Input.GetAxis("Horizontal") * Time.deltaTime * currentSpeed;
+        if (OnGround)
         {
-            Vertical = Input.GetAxis("Vertical") * Time.deltaTime * currentSpeed;
-            Horizontal = Input.GetAxis("Horizontal") * Time.deltaTime * currentSpeed;
             if (Input.GetKey(KeyCode.Space) && Stamina > 50) 
             {
                 GetComponent<Rigidbody>().AddForce(0, jumpSpeed, 0);

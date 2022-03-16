@@ -6,6 +6,9 @@ TagManager:
   tags:
   - CharacterController
   - Ground
+  - Fire
+  - Door
+  - ClosedFrontDoor
   layers:
   - Default
   - TransparentFX
@@ -16,7 +19,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - PostProcess
   - 
   - 
   - 
